@@ -1,0 +1,51 @@
+def quiz_nutrition():
+    questions = [
+        {"question": "Les fibres alimentaires aident à la digestion et favorisent la satiété.", "answer": True},
+        {"question": "Tous les lipides sont mauvais pour la santé et doivent être évités lors d’un régime.", "answer": False},
+        {"question": "Les protéines jouent un rôle clé dans la préservation de la masse musculaire pendant une perte de poids.", "answer": True},
+        {"question": "Boire de l’eau citronnée le matin brûle automatiquement les graisses.", "answer": False},
+        {"question": "Manger lentement aide à mieux contrôler l’appétit et la quantité de nourriture consommée.", "answer": True},
+    ]
+    
+    qcm_questions = [
+        {"question": "Quel aliment contient le plus de fibres ?", "options": ["Riz blanc", "Pain complet", "Fromage", "Poulet"], "answer": 1},
+        {"question": "Quel type de graisse est le plus sain ?", "options": ["Graisses saturées", "Graisses trans", "Graisses mono-insaturées", "Graisses hydrogénées"], "answer": 2},
+        {"question": "Quel est le meilleur moment pour consommer des glucides lorsqu’on veut perdre du poids ?", "options": ["Le matin et avant une activité physique", "Juste avant de dormir", "À n’importe quel moment", "Après un repas riche en lipides"], "answer": 0},
+        {"question": "Quelle est la meilleure approche pour éviter les fringales ?", "options": ["Manger des repas équilibrés avec des protéines et des fibres", "Manger moins de repas mais en plus grande quantité", "Supprimer totalement les lipides", "Boire du café toute la journée"], "answer": 0},
+        {"question": "Quel est l’impact des boissons sucrées sur la perte de poids ?", "options": ["Elles sont neutres tant qu’on fait du sport", "Elles favorisent le stockage des graisses et les pics d’insuline", "Elles accélèrent le métabolisme", "Elles ne contiennent pas de calories"], "answer": 1},
+    ]
+    
+    score = 0
+    
+    print("Bienvenue au Quiz Nutrition - Challenge Perte de Poids (10 jours)\n")
+    
+    for q in questions:
+        reponse = input(f"Vrai ou Faux : {q['question']} (v/f) : ")
+        if (reponse.lower() == "v" and q["answer"]) or (reponse.lower() == "f" and not q["answer"]):
+            print("Bonne réponse !\n")
+            score += 1
+        else:
+            print("Mauvaise réponse.\n")
+    
+    for i, q in enumerate(qcm_questions):
+        print(f"{i + 6}. {q['question']}")
+        for j, option in enumerate(q["options"]):
+            print(f"   {j+1}) {option}")
+        
+        reponse = int(input("Votre réponse (1-4) : ")) - 1
+        if reponse == q["answer"]:
+            print("Bonne réponse !\n")
+            score += 1
+        else:
+            print("Mauvaise réponse.\n")
+    
+    print(f"Votre score final est de {score}/10.\n")
+    if score >= 8:
+        print("Expert en nutrition ! Continuez sur cette voie.")
+    elif score >= 5:
+        print("Bonnes connaissances, mais quelques ajustements peuvent être nécessaires.")
+    else:
+        print("Besoin d’améliorer vos connaissances en nutrition, continuez à apprendre !")
+
+if __name__ == "__main__":
+    quiz_nutrition()
